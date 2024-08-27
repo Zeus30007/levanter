@@ -23,24 +23,21 @@ bot.addCommand(
       return 0
     })
     const [date, time] = getDate()
-    let CMD_HELP = `╭────────────────╮
-						ʟᴇᴠᴀɴᴛᴇʀ
-╰────────────────╯
-
-╭────────────────
-│ Prefix : ${PREFIX}
-│ User : ${message.pushName}
-│ Time : ${time}
-│ Day : ${date.toLocaleString('en', { weekday: 'long' })}
-│ Date : ${date.toLocaleDateString('hi')}
-│ Version : ${VERSION}
-│ Plugins : ${PLUGINS.count}
-│ Ram : ${getRam()}
-│ Uptime : ${getUptime('t')}
-│ Platform : ${getPlatform()}
-╰────────────────
-╭────────────────
-`
+    let CMD_HELP = `
+          ⨺⃝𝚁𝙾𝚂𝙴♱𝕹𝖆𝖙𝖍𝖆𝖓♱
+♱────────────────♱
+╋ Prefix : ${PREFIX}
+╋ User : ${message.pushName}
+╋ Time : ${time}
+╋ Day : ${date.toLocaleString('en', { weekday: 'long' })}
+╋ Date : ${date.toLocaleDateString('hi')}
+╋ Version : ${VERSION}
+╋ Plugins : ${PLUGINS.count}
+╋ Ram : ${getRam()}
+╋ Uptime : ${getUptime('t')}
+╋ Platform : ${getPlatform()}
+♱────────────────♱
+╶⃝𝙼𝚒𝚛𝚊𝚗 𝚏𝚘𝚡𓃥×⨺⃝𝚁𝙾𝚂𝙴`
     sorted.map(async (command, i) => {
       if (command.dontAddCommandList === false && command.pattern !== undefined) {
         CMD_HELP += `│ ${i + 1} ${addSpace(i + 1, sorted.length)}${textToStylist(
@@ -50,7 +47,7 @@ bot.addCommand(
       }
     })
 
-    CMD_HELP += `╰────────────────`
+    CMD_HELP += `♱───────────────♱`
     return await message.send('```' + CMD_HELP + '```')
   }
 )
@@ -93,34 +90,34 @@ bot.addCommand(
       }
     })
     const [date, time] = getDate()
-    let msg = `\`\`\`╭═══ LEVANTER ═══⊷
-┃❃╭──────────────
-┃❃│ Prefix : ${PREFIX}
-┃❃│ User : ${message.pushName}
-┃❃│ Time : ${time}
-┃❃│ Day : ${date.toLocaleString('en', { weekday: 'long' })}
-┃❃│ Date : ${date.toLocaleDateString('hi')}
-┃❃│ Version : ${VERSION}
-┃❃│ Plugins : ${PLUGINS.count}
-┃❃│ Ram : ${getRam()}
-┃❃│ Uptime : ${getUptime('t')}
-┃❃│ Platform : ${getPlatform()}
-┃❃╰───────────────
-╰═════════════════⊷\`\`\`\n`
+    let msg = `\`\`\`♱⨺⃝𝚁𝙾𝚂𝙴♱
+╋━♱──────────────♱
+╋━ Prefix : ${PREFIX}
+╋━ User : ${message.pushName}
+╋━ Time : ${time}
+╋━ Day : ${date.toLocaleString('en', { weekday: 'long' })}
+╋━ Date : ${date.toLocaleDateString('hi')}
+╋━ Version : ${VERSION}
+╋━ Plugins : ${PLUGINS.count}
+╋━ Ram : ${getRam()}
+╋━ Uptime : ${getUptime('t')}
+╋━ Platform : ${getPlatform()}
+╋━♱───────────────♱
+𝕹𝖆𝖙𝖍𝖆𝖓♱╶⃝𝙼𝚒𝚛𝚊𝚗 𝚏𝚘𝚡𓃥`
 
     if (match && commands[match]) {
-      msg += ` ╭─❏ ${textToStylist(match.toLowerCase(), 'smallcaps')} ❏\n`
+      msg += ` ╋━♱ ${textToStylist(match.toLowerCase(), 'smallcaps')} ♱\n`
       for (const plugin of commands[match])
-        msg += ` │ ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
-      msg += ` ╰─────────────────`
+        msg += ` ♱ ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
+      msg += ` ╋━♱────────────────♱`
 
       return await message.send(msg)
     }
     for (const command in commands) {
-      msg += ` ╭─❏ ${textToStylist(command.toLowerCase(), 'smallcaps')} ❏\n`
+      msg += ` ╋━♱ ${textToStylist(command.toLowerCase(), 'smallcaps')} ♱\n`
       for (const plugin of commands[command])
         msg += ` │ ${textToStylist(plugin.toUpperCase(), 'mono')}\n`
-      msg += ` ╰─────────────────\n`
+      msg += ` ╋━♱────────────────♱\n`
     }
     await message.send(msg.trim())
   }
